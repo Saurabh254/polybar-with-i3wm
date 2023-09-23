@@ -40,7 +40,10 @@ sudo pacman -S ttf-roboto ttf-font-awesome noto-fonts ttf-firacode-nerd
 ### Other distros Debian/Fedora
 
 Install the fonts manally
-
+- roboto
+- font awesome 6
+- noto fonts
+- firacode nerd
 ## Config Installation
 
 To proceed with the installation execute the given commands in the terminal
