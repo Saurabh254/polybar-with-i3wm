@@ -22,7 +22,7 @@
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango: Noto Sans Regular 10
+font pango: Noto Sans Regular 11
 
 # set the mod key to the winkey:
 set $mod Mod4
@@ -201,9 +201,8 @@ bindsym F1 exec ~/.config/i3/scripts/keyhint-2
 #bindsym XF86MonBrightnessUp exec xbacklight +10 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
 #bindsym XF86MonBrightnessDown exec xbacklight -10 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
 # Backlight setting using dunst osc
-bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_up
-bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_down
-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -320,11 +319,11 @@ set $ws10 "10"
 #workspace $ws5 output HDMI-0
 
 # bind program to workspace and focus to them on startup:
-assign [class="Xfce4-terminal"] $ws1
-assign [class="(?i)firefox"] $ws2
-assign [class="Thunar"] $ws3
-assign [class="thunderbird"] $ws4
-assign [class="TelegramDesktop"] $ws5
+#assign [class="Xfce4-terminal"] $ws1
+#assign [class="(?i)firefox"] $ws2
+#assign [class="Thunar"] $ws3
+#assign [class="thunderbird"] $ws4
+#assign [class="TelegramDesktop"] $ws5
 
 # automatic set focus new window if it opens on another workspace than the current:
 for_window [class=Xfce4-terminal] focus
@@ -381,7 +380,7 @@ exec --no-startup-id dex --autostart --environment i3
 #exec --no-startup-id sh /usr/share/endeavouros/scripts/welcome --startdelay=3 
 
 # num lock activated
-#exec --no-startup-id numlockx on
+exec --no-startup-id numlockx on
 
 # configure multiple keyboard layouts and hotkey to switch (Alt+CAPSLOCK in this example)
 #exec --no-startup-id setxkbmap -layout 'us,sk' -variant altgr-intl,qwerty -option 'grp:alt_caps_toggle'
@@ -395,7 +394,7 @@ exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # set wallpaper
 # exec --no-startup-id sleep 2 && nitrogen --restore
-exec --no-startup-id sleep 1 && feh --bg-fill /usr/share/endeavouros/backgrounds/endeavouros-wallpaper.png
+exec --no-startup-id sleep 1 && feh --bg-fill ~/Pictures/wallpaper.jpg
 
 # set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
@@ -428,8 +427,8 @@ exec --no-startup-id /usr/bin/dunst
 #exec_always --no-startup-id autotiling
 
 # Autostart apps as you like
-exec --no-startup-id sleep 2 && xfce4-terminal
-#exsec --no-startup-id sleep 7 && firefox https://github.com/endeavouros-team/endeavouros-i3wm-setup/blob/main/force-knowledge.md
+#exec --no-startup-id sleep 2 && xfce4-terminal
+exec --no-startup-id sleep 7 && firefox https://github.com/endeavouros-team/endeavouros-i3wm-setup/blob/main/force-knowledge.md
 #exec --no-startup-id sleep 3 && thunar
 
 ###############
@@ -439,13 +438,13 @@ exec --no-startup-id sleep 2 && xfce4-terminal
 # you need to have tray apps started manually one by one:
 
 # start blueberry app for managing bluetooth devices from tray:
-#exec --no-startup-id blueberry-tray
+exec --no-startup-id blueberry-tray
 
 # networkmanager-applet
-#exec --no-startup-id nm-applet
+exec --no-startup-id nm-applet
 
 # clipman-applet
-#exec --no-startup-id xfce4-clipman
+exec --no-startup-id xfce4-clipman
 
 ##################
 # floating rules #
@@ -484,6 +483,7 @@ set $darkbluetrans	#08052be6
 set $darkblue		#08052b
 set $lightblue		#5294e2
 set $urgentred		#e53935
+set $panelcolor         #d2e3fc
 set $white		#ffffff
 set $black		#000000
 set $purple		#e345ff
@@ -494,10 +494,10 @@ set $yellowbrown	#e1b700
 
 # define colors for windows:
 #class		        	border		bground		text		indicator	child_border
-client.focused		    	$lightblue	$darkblue	$white		$mediumgrey	$mediumgrey
-client.unfocused	    	$darkblue	$darkblue	$grey		$darkgrey	$darkgrey
-client.focused_inactive		$darkblue	$darkblue	$grey		$black		$black
-client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
+client.focused		    	$lightblue	$panelcolor	$black		$mediumgrey	$mediumgrey
+client.unfocused	    	$darkblue	$panelcolor	$black		$darkgrey	$darkgrey
+client.focused_inactive		$darkblue	$panelcolor     $black		$black		$black
+client.urgent		    	$urgentred	$urgentred	$black		$yellowbrown	$yellowbrown
 
 ############################################
 # bar settings (input comes from i3blocks) #
@@ -520,7 +520,7 @@ client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
 # “[n][:][NAME]” will display only the name.
 #strip_workspace_numbers yes
 ##strip_workspace_name no
-
+#
 #		    colors {
 #		    separator          $purple
 #		    background         $darkgrey
@@ -588,6 +588,6 @@ bindsym $mod+t exec rofi -show window \
 
 #exec --no-startup-id greenclip daemon>/dev/null
 #bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard \
-#		-config ~/.config/rofi/rofidmenu.rasi
+#		-config ~/.config/rofi/rofidmenu.ra
+
 exec_always --no-startup-id polybar
-exec_always --no-startup-id redshift -O 3400
