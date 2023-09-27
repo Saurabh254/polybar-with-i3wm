@@ -27,7 +27,7 @@ sudo apt-get install polybar
 
 For Fedora users
 ```bash
-sudo dnf install google-roboto-condensed-fonts
+sudo dnf install polybar
 ```
 
 ### Install fonts
