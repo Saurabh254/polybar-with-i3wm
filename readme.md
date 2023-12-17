@@ -51,7 +51,7 @@ To proceed with the installation execute the given commands in the terminal
 #### For polybar Installation without i3 config
 
 ```bash
-git clone https://www.github/com/Saurabh254/polybar-with-i3wm
+git clone https://github.com/Saurabh254/polybar-with-i3wm.git
 cd polybar-with-i3wm
 cp -R polybar ~/.config/
 ```
