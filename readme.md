@@ -1,6 +1,6 @@
 # PolyBar themed with i3wm
 
-#### OS Info:
+#### Rice Info:
 - OS : Endeavour OS
 - DE : i3wm configured
 - bar: polybar
