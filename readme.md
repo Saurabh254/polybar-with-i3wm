@@ -1,7 +1,9 @@
 # PolyBar themed with i3wm
 
 #### OS Info:
-- Endeavour OS with i3wm configured with polybar
+- OS : Endeavour OS
+- DE : i3wm configured
+- bar: polybar
 
 <img src='./src/image1.png'>
 
