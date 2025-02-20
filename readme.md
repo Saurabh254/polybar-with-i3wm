@@ -5,9 +5,9 @@
 - DE : i3wm configured
 - bar: polybar
 
-<img src='./src/image1.png'>
+<img src='./src/screenshot.png'>
 
-<img src='./src/image2.png'>
+
 
 Image contains: Firefox, cava, neofetch
 
