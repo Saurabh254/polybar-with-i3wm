@@ -5,7 +5,7 @@
 - DE : i3wm configured
 - bar: polybar
 
-<img src='./src/screenshot.png'>
+<img src='./public/screenshot.png'>
 
 
 
