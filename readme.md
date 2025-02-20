@@ -9,7 +9,7 @@
 
 
 
-Image contains: Firefox, cava, neofetch
+Image contains: fastfetch
 
 ## Installation
 
