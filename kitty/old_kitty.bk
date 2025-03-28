@@ -1,0 +1,55 @@
+# Kitty Terminal Keybindings
+# Save this file in your kitty config directory, e.g., ~/.config/kitty/keyboard.conf
+# Then include it in your main kitty.conf with: include keyboard.conf
+include current-theme.conf
+# Cursor movement with Alt keys - move to start/end of line
+map alt+left       move_cursor_to_start_of_line
+map alt+right      move_cursor_to_end_of_line
+
+# Alternative Alt combinations for start/end of line
+map alt+home       move_cursor_to_start_of_line
+map alt+end        move_cursor_to_end_of_line
+map alt+a          move_cursor_to_start_of_line
+map alt+e          move_cursor_to_end_of_line
+
+# Word navigation with Ctrl keys
+map ctrl+left      move_word_backward
+map ctrl+right     move_word_forward
+
+# Additional cursor movement shortcuts
+map home           move_cursor_to_start_of_line
+map end            move_cursor_to_end_of_line
+map page_up        scroll_page_up
+map page_down      scroll_page_down
+
+# Line movement
+map alt+up         scroll_line_up
+map alt+down       scroll_line_down
+map ctrl+up        scroll_page_up
+map ctrl+down      scroll_page_down
+
+# History navigation
+map ctrl+shift+up   scroll_to_prompt -1
+map ctrl+shift+down scroll_to_prompt 1
+
+# Faster scrolling with Shift
+map shift+page_up   scroll_page_up 10
+map shift+page_down scroll_page_down 10
+
+# Tab navigation
+map ctrl+tab        next_tab
+map ctrl+shift+tab  previous_tab
+
+# Select text
+map shift+left      move_cursor_backward_with_selection 1
+map shift+right     move_cursor_forward_with_selection 1
+map shift+up        move_cursor_up_with_selection 1
+map shift+down      move_cursor_down_with_selection 1
+map shift+home      move_cursor_to_start_of_line_with_selection
+map shift+end       move_cursor_to_end_of_line_with_selection
+map ctrl+shift+left move_cursor_backward_by_word_with_selection
+map ctrl+shift+right move_cursor_forward_by_word_with_selection
+
+# Select entire line
+map ctrl+shift+a    select_line
+font_size 12.0
